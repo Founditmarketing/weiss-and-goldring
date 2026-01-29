@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore }) => {
         <img
           src="/bowtieheader.jpg"
           alt="Gentleman in suit"
-          className="w-full h-full object-cover object-top md:object-[50%_25%]"
+          className="w-full h-full object-cover object-top md:object-[50%_15%]"
         />
         <div className="absolute inset-0 bg-navy-900/40 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent opacity-80" />
