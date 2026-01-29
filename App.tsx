@@ -66,7 +66,7 @@ function App() {
   return (
     <div className="bg-cream min-h-screen selection:bg-gold-300 selection:text-navy-900 font-sans">
       <Navbar onNavigate={navigateTo} onBookClick={openAppointment} activePage={currentPage} />
-      
+
       <main>
         {currentPage === 'home' && (
           <>
@@ -89,9 +89,9 @@ function App() {
       </main>
 
       <Footer onLinkClick={handleFooterLink} />
-      
+
       <AppointmentModal isOpen={isAppointmentOpen} onClose={closeAppointment} />
-      <StyleConcierge />
+      {/* <StyleConcierge /> */}
     </div>
   );
 }
