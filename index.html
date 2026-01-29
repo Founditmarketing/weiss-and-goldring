@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weiss & Goldring | Est. 1899</title>
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://weiss-goldring-2026.web.app/" />
+  <meta property="og:title" content="Weiss & Goldring | Est. 1899" />
+  <meta property="og:description"
+    content="Serving Alexandria’s gentlemen for over a century with fine tailoring and personal attention." />
+  <meta property="og:image" content="https://weiss-goldring-2026.web.app/bowtieheader.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://weiss-goldring-2026.web.app/" />
+  <meta property="twitter:title" content="Weiss & Goldring | Est. 1899" />
+  <meta property="twitter:description"
+    content="Serving Alexandria’s gentlemen for over a century with fine tailoring and personal attention." />
+  <meta property="twitter:image" content="https://weiss-goldring-2026.web.app/bowtieheader.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              100: '#F9F1D8',
+              300: '#D4AF37',
+              500: '#AA8C2C',
+              900: '#5C4B13',
+            },
+            navy: {
+              800: '#0A1929',
+              900: '#050E17',
+            },
+            cream: '#FDFBF7'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FDFBF7;
+      color: #0A1929;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
