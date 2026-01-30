@@ -52,9 +52,9 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
         {/* Sidebar Image */}
         <div className="hidden md:block w-5/12 bg-navy-900 relative">
           <img
-            src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=1887&auto=format&fit=crop"
+            src="/contactimage.jpg"
             alt="Measuring Tape"
-            className="w-full h-full object-cover opacity-50 mix-blend-overlay"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent opacity-90" />
           <div className="absolute bottom-12 left-12 text-white pr-8">

@@ -54,7 +54,7 @@ export const HeritagePage: React.FC<HeritagePageProps> = ({ onBack }) => {
           <div className="relative order-1 md:order-2 md:max-w-md md:mx-auto">
             <div className="absolute bottom-4 -right-4 w-full h-full border border-navy-900 z-0" />
             <img
-              src="/heritagetwo.jpg"
+              src="/newheritageimage.JPG"
               alt="Modern Storefront"
               className="relative z-10 w-full rounded-sm"
             />

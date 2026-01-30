@@ -19,10 +19,14 @@ export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
           {/* Brand Column */}
           <div className="md:col-span-1">
             <div
-              className="flex flex-col cursor-pointer group"
+              className="flex flex-col items-start cursor-pointer group"
               onClick={() => onLinkClick('home')}
             >
-              <h3 className="font-serif text-2xl tracking-widest font-bold mb-2 group-hover:text-gold-500 transition-colors">WEISS & GOLDRING</h3>
+              <img
+                src="/weissangoldringlogo.png"
+                alt="Weiss & Goldring"
+                className="h-9 w-auto mb-2 object-contain"
+              />
               <span className="text-[0.6rem] tracking-[0.3em] uppercase text-gold-500">Est. 1899 • Alexandria, LA</span>
             </div>
             <p className="mt-6 text-gray-400 text-xs leading-relaxed font-sans">
@@ -62,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400 text-sm font-sans">
                 <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
-                <span>3214 Dorchester Dr,<br />Alexandria, LA 71301</span>
+                <span>3601 Masonic Drive<br />Alexandria, LA 71301</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm font-sans hover:text-white transition-colors">
                 <Phone className="w-4 h-4 text-gold-500 shrink-0" />
@@ -70,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm font-sans hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href="mailto:info@weissgoldring.com">info@weissgoldring.com</a>
+                <a href="mailto:tmsilver@weissgoldring.com">tmsilver@weissgoldring.com</a>
               </li>
             </ul>
           </div>
