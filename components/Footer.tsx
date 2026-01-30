@@ -105,8 +105,8 @@ export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
             © {new Date().getFullYear()} Weiss & Goldring. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-gold-500 transition-colors"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="text-gray-400 hover:text-gold-500 transition-colors"><Facebook className="w-4 h-4" /></a>
+            <a href="https://www.instagram.com/weissgoldring/?hl=en" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold-500 transition-colors"><Instagram className="w-4 h-4" /></a>
+            <a href="https://www.facebook.com/WeissGoldring/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold-500 transition-colors"><Facebook className="w-4 h-4" /></a>
           </div>
         </div>
       </div>

@@ -93,9 +93,15 @@ export const MerchandisePage: React.FC<MerchandisePageProps> = ({ onBack }) => {
                         <p className="text-gray-300 mb-8 max-w-xl mx-auto">
                             Pictures cannot convey the feel of the fabric or the precision of the fit. Visit us in Alexandria to explore our full collection.
                         </p>
-                        <Button variant="outline" className="text-white border-white hover:bg-white hover:text-navy-900">
-                            Visit the Store
-                        </Button>
+                        <a
+                            href="https://www.google.com/maps/search/?api=1&query=3601+Masonic+Drive,+Alexandria,+LA+71301"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-navy-900">
+                                Visit the Store
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </div>
