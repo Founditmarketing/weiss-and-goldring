@@ -88,7 +88,7 @@ function App() {
         )}
       </main>
 
-      <Footer onLinkClick={handleFooterLink} />
+      <Footer onLinkClick={handleFooterLink} onContactClick={openAppointment} />
 
       <AppointmentModal isOpen={isAppointmentOpen} onClose={closeAppointment} />
       {/* <StyleConcierge /> */}

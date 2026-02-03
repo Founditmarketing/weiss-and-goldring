@@ -1,10 +1,10 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = process.env.API_KEY || "";
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export const getStyleAdvice = async (userQuery: string): Promise<string> => {
   try {
-    const model = 'gemini-3-flash-preview';
     const systemInstruction = `
       You are "Alexander", the digital concierge for Weiss & Goldring, a luxury menswear store in Alexandria, LA.
       Your tone is sophisticated, warm, helpful, and concise. You are knowledgeable about high-end fashion.
@@ -20,16 +20,14 @@ export const getStyleAdvice = async (userQuery: string): Promise<string> => {
       Keep the response under 100 words.
     `;
 
-    const response = await ai.models.generateContent({
-      model,
-      contents: userQuery,
-      config: {
-        systemInstruction,
-        temperature: 0.7,
-      }
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: systemInstruction
     });
 
-    return response.text || "I apologize, I am currently assisting another client. Please book an appointment with Ted for personalized advice.";
+    const result = await model.generateContent(userQuery);
+    const response = await result.response;
+    return response.text();
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "I am having trouble connecting to the style server. However, Ted is always available for a personal consultation.";

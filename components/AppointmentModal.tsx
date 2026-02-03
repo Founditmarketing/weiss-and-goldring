@@ -13,13 +13,51 @@ interface AppointmentModalProps {
 export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    interest: '',
+    preferredDate: '',
+    message: ''
+  });
 
-  const handleSubmit = () => {
-    // In a real app, this would send data to a backend
-    setIsSubmitted(true);
-    setTimeout(() => {
-      // Optional: auto-close after a few seconds or let user close
-    }, 3000);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleInterestChange = (interest: string) => {
+    setFormData(prev => ({ ...prev, interest }));
+  };
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://formspree.io/f/mnjvlwlg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          // Optional: close or reset if needed, but per original code we show success screen
+        }, 3000);
+      } else {
+        alert('There was a problem submitting your form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('There was a problem submitting your form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
@@ -27,6 +65,16 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
     setTimeout(() => {
       setStep(1);
       setIsSubmitted(false);
+      setIsSubmitting(false);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        interest: '',
+        preferredDate: '',
+        message: ''
+      });
     }, 500); // Reset after animation
   };
 
@@ -91,20 +139,52 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                 <div className="space-y-6 animate-fade-in-up">
                   <div className="grid grid-cols-2 gap-6">
                     <div className="relative">
-                      <input type="text" id="fname" className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors" placeholder="First Name" />
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        id="fname"
+                        className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors"
+                        placeholder="First Name"
+                      />
                       <label htmlFor="fname" className="absolute left-0 -top-3.5 text-gray-600 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-500 peer-focus:text-xs">First Name</label>
                     </div>
                     <div className="relative">
-                      <input type="text" id="lname" className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors" placeholder="Last Name" />
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        id="lname"
+                        className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors"
+                        placeholder="Last Name"
+                      />
                       <label htmlFor="lname" className="absolute left-0 -top-3.5 text-gray-600 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-500 peer-focus:text-xs">Last Name</label>
                     </div>
                   </div>
                   <div className="relative">
-                    <input type="email" id="email" className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors" placeholder="Email" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      id="email"
+                      className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors"
+                      placeholder="Email"
+                    />
                     <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-500 peer-focus:text-xs">Email Address</label>
                   </div>
                   <div className="relative">
-                    <input type="tel" id="phone" className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors" placeholder="Phone" />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      id="phone"
+                      className="peer w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans placeholder-transparent transition-colors"
+                      placeholder="Phone"
+                    />
                     <label htmlFor="phone" className="absolute left-0 -top-3.5 text-gray-600 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gold-500 peer-focus:text-xs">Phone Number</label>
                   </div>
 
@@ -114,7 +194,14 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
                       {['Bespoke Suit', 'Wardrobe Refresh', 'Special Event', 'Alterations'].map((type) => (
                         <label key={type} className="flex items-center gap-2 cursor-pointer group">
                           <div className="relative flex items-center">
-                            <input type="radio" name="type" className="peer sr-only" />
+                            <input
+                              type="radio"
+                              name="interest"
+                              value={type}
+                              checked={formData.interest === type}
+                              onChange={() => handleInterestChange(type)}
+                              className="peer sr-only"
+                            />
                             <div className="w-4 h-4 border border-gray-300 rounded-full peer-checked:border-navy-900 peer-checked:border-4 transition-all"></div>
                           </div>
                           <span className="text-sm text-gray-600 group-hover:text-navy-900 transition-colors">{type}</span>
@@ -143,11 +230,20 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
 
                   <div className="relative group">
                     <label className="text-xs text-gray-500 uppercase tracking-wider mb-2 block group-focus-within:text-gold-500 transition-colors">Preferred Date</label>
-                    <input type="date" className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans transition-colors" />
+                    <input
+                      type="date"
+                      name="preferredDate"
+                      value={formData.preferredDate}
+                      onChange={handleChange}
+                      className="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-gold-500 text-sm font-sans transition-colors"
+                    />
                   </div>
 
                   <div className="relative group">
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell us about your needs or specific brands you are interested in..."
                       rows={3}
                       className="w-full border border-gray-300 p-4 text-sm font-sans focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 rounded-sm bg-gray-50 transition-all placeholder:text-gray-400"
@@ -156,7 +252,9 @@ export const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onCl
 
                   <div className="flex gap-4 mt-6">
                     <button onClick={() => setStep(1)} className="text-xs uppercase tracking-widest text-gray-500 hover:text-navy-900 px-4 transition-colors">Back</button>
-                    <Button onClick={handleSubmit} className="flex-1">Confirm Request</Button>
+                    <Button onClick={handleSubmit} className="flex-1" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending...' : 'Confirm Request'}
+                    </Button>
                   </div>
                 </div>
               )}

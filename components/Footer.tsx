@@ -8,9 +8,10 @@ import Facebook from 'lucide-react/dist/esm/icons/facebook';
 
 interface FooterProps {
   onLinkClick: (href: string) => void;
+  onContactClick: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
+export const Footer: React.FC<FooterProps> = ({ onLinkClick, onContactClick }) => {
   return (
     <footer className="bg-navy-900 text-white pt-24 pb-12">
       <div className="container mx-auto px-6">
@@ -74,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm font-sans hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href="mailto:tmsilver@weissgoldring.com">tmsilver@weissgoldring.com</a>
+                <button onClick={onContactClick} className="text-left hover:text-white transition-colors">Contact Us</button>
               </li>
             </ul>
           </div>
