@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react()],
     define: {
-      // Keeping your specific key mapping
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
     },
@@ -20,11 +19,18 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(process.cwd(), '.'),
       }
     },
-    // --- THIS IS THE NEW PART ---
     build: {
-      sourcemap: false,       // Disables heavy map generation (speeds up build)
-      chunkSizeWarningLimit: 1000, // Silences the file size warning
+      sourcemap: false,
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'framer-motion'],
+            'vendor-ui': ['lucide-react'],
+            // 'vendor-ai': ['@google/generative-ai'] // Only if used in client
+          }
+        }
+      }
     }
-    // ----------------------------
   };
 });
