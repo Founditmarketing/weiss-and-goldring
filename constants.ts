@@ -47,7 +47,7 @@ export const BRAND_CATEGORIES = {
     "Giannetto", "Matteo Perin", "Castangia", "Di Bello"
   ],
   trousers: [
-    "Meyer", "Ballin", "Marco Pescarolo", "Castangia", "B Settecento", "Paige"
+    "Meyer", "Ballin", "Marco Pescarolo", "Castangia", "B Settecento", "Paige", "Malcom"
   ],
   footwear: [
     "On Running", "Magnanni", "Santoni", "Officine Creative", "ONCEPT-NYC"
