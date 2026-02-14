@@ -40,24 +40,20 @@ export const BRANDS: Brand[] = [
 
 export const BRAND_CATEGORIES = {
   clothing: [
-    "Castangia 1850", "Canali", "Jack Victor", "Coppley", "Hickey Freeman",
-    "Byron", "Empire", "Samuelsohn", "Gimo's", "Eduardo"
+    "Castangia 1850", "Canali", "Jack Victor", "Rochester Tailored Clothing", "Scabal"
   ],
   sportswear: [
-    "Peter Millar", "Barbour", "Bugatchi", "Fedeli", "Faherty",
-    "Greyson", "Johnnie-O", "Robert Graham", "Stenströms", "Emanuel Berg",
-    "David Donahue", "Eton"
+    "Bugatchi", "Fedeli", "Greyson", "Johnnie-O", "Stenströms",
+    "Giannetto", "Matteo Perin", "Castangia", "Di Bello"
   ],
   trousers: [
-    "Hiltl", "Brax", "34 Heritage", "Meyer", "Ballin", "Zanella"
+    "Meyer", "Ballin", "Marco Pescarolo", "Castangia", "B Settecento", "Paige"
   ],
   footwear: [
-    "Martin Dingman", "On Running", "Johnston & Murphy", "Magnanni",
-    "Donald J Pliner", "Loake"
+    "On Running", "Magnanni", "Santoni", "Officine Creative", "ONCEPT-NYC"
   ],
   accessories: [
-    "Dion", "Italo Ferretti", "W. Kleinberg", "Tateossian", "Baccarat",
-    "Smathers & Branson", "Eyebobs", "Secrid"
+    "W. Kleinberg", "G. Inglese", "Castangia", "Matteo Perin"
   ]
 };
 
