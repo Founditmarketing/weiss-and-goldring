@@ -48,7 +48,7 @@ export const HeritagePage: React.FC<HeritagePageProps> = ({ onBack }) => {
               The legacy continued as the Silver family took the helm, infusing the historic brand with new energy while honoring its deep roots. Today, under the guidance of Ted Silver, Weiss & Goldring represents the perfect synthesis of heritage and modernity.
             </p>
             <p>
-              Ted's vision has transformed the store into a destination that celebrates the art of living well. From moving to our current, elegant location on Dorchester Drive to curating exclusive partnerships with world-renowned brands like Castangia and Matteo Perin, the commitment remains unchanged: to offer an experience that is as exceptional as the clothing itself.
+              Ted's vision has transformed the store into a destination that celebrates the art of living well. From moving to our current, elegant location on Masonic Drive to curating exclusive partnerships with world-renowned brands like Castangia and Matteo Perin, the commitment remains unchanged: to offer an experience that is as exceptional as the clothing itself.
             </p>
           </div>
           <div className="relative order-1 md:order-2 md:max-w-md md:mx-auto">
